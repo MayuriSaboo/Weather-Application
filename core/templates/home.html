@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+<style>
+    #mydiv {
+    position:fixed;
+    top: 50%;
+    left: 40%;
+    right:30%;
+    width:50em;
+    height:18em;
+    margin-top: -9em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+    text-align:center;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: #008CBA;
+}
+input[type=text] {
+
+  padding: 12px 32px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #555;
+  outline: none;
+
+
+  }
+
+</style>
+<body>
+<div id="mydiv">
+<h1>Find the Weather</h1>
+<form method="GET">
+    <label for="city"></label>
+
+    <input type="text" name="city" id="city" placeholder="City Name" >
+    <input type="submit" value="Submit" class="button">
+    <br>
+    <br>
+
+</form>
+{% if weather %}
+    <b style="color:red;">Weather Region Searched  : </b><h3 style="display:inline;">{{ weather.region }}</h3>
+    <br>
+    <b style="color:red;">Weather Status is : </b><h3 style="display:inline;">{{ weather.status }}</h3>
+    <br>
+    <b style="color:red;">Weather Temperature is : </b><h3 style="display:inline;">{{ weather.temp }} &#8451;</h3>
+{% endif %}
+    </div>
+</body>
+</html>
